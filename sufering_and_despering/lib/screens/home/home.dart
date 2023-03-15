@@ -1,47 +1,103 @@
 import 'package:flutter/material.dart';
 
 import '../settings/settings.dart';
+import '../Banking/primeiraTela.dart';
 
 class HomePage extends StatelessWidget {
-   const HomePage({super.key});
+  const HomePage({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Organização Pessoal'),
         actions: [
-          IconButton(onPressed: (){
+          Container(
+            alignment: Alignment.topLeft,
+            child: CircleAvatar(
+              radius: 50.0,
+              foregroundImage: const AssetImage('../../assets/user.jpg'),
+            ),
+          ),
+          IconButton(
+              onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const UserSettingsPage()),
+                  MaterialPageRoute(
+                      builder: (context) => const UserSettingsPage()),
                 );
-          }, icon: const Icon(Icons.settings))
+              },
+              icon: const Icon(Icons.settings)),
         ],
-
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'Bem-vindo(a)!',
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
+      body: SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: Row(
+          children: [
+            // Cada ícone é um GestureDetector que navega para uma tela diferente
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => primeiraTela()),
+                );
+              },
+              child: Container(
+                width: 50,
+                height: 50,
+                child: const Icon(Icons.graphic_eq, color: Color(0xFF6CE5E8)),
               ),
             ),
-            const SizedBox(height: 16),
-            // ignore: prefer_const_constructors
-            const Text(
-              'Este é o seu aplicativo de organização pessoal.',
-              style: TextStyle(
-                fontSize: 16,
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => primeiraTela()),
+                );
+              },
+              child: Container(
+                width: 50,
+                height: 50,
+                child: Icon(Icons.graphic_eq, color: Color(0xFF6CE5E8)),
               ),
             ),
-            const SizedBox(height: 32),
-            ElevatedButton(
-              onPressed: () {},
-              child: const Text('Começar'),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => primeiraTela()),
+                );
+              },
+              child: Container(
+                width: 50,
+                height: 50,
+                child: const Icon(Icons.graphic_eq, color: Color(0xFF6CE5E8)),
+              ),
+            ),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => primeiraTela()),
+                );
+              },
+              child: Container(
+                width: 50,
+                height: 50,
+                child: const Icon(Icons.graphic_eq, color: Color(0xFF6CE5E8)),
+              ),
+            ),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => primeiraTela()),
+                );
+              },
+              child: Container(
+                width: 50,
+                height: 50,
+                child: const Icon(Icons.graphic_eq, color: Color(0xFF6CE5E8)),
+              ),
             ),
           ],
         ),
