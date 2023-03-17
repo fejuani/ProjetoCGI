@@ -9,13 +9,16 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        toolbarHeight: 180.0,
         title: const Text('Organização Pessoal'),
         actions: [
           Container(
-            alignment: Alignment.topLeft,
-            child: CircleAvatar(
-              radius: 50.0,
-              foregroundImage: const AssetImage('../../assets/user.jpg'),
+            alignment: Alignment.centerLeft,
+            padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 5),
+            margin: const EdgeInsets.symmetric(vertical: 0, horizontal: 0),
+            child: const CircleAvatar(
+              radius: 30.0,
+              backgroundImage: AssetImage('assets/user.jpg'),
             ),
           ),
           IconButton(
@@ -33,70 +36,90 @@ class HomePage extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         child: Row(
           children: [
-            // Cada ícone é um GestureDetector que navega para uma tela diferente
+            const Padding(
+              padding: EdgeInsets.only(left: 10.0),
+              ),
             GestureDetector(
+              
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => primeiraTela()),
+                  MaterialPageRoute(builder: (context) => const primeiraTela()),
                 );
               },
-              child: Container(
-                width: 50,
-                height: 50,
-                child: const Icon(Icons.graphic_eq, color: Color(0xFF6CE5E8)),
+              child: Center(
+                                 
+                child: ClipRRect(
+                  
+                  borderRadius: BorderRadius.circular(15), 
+                  
+                    child: Image.asset(
+                  "assets/iconenubank.png",width: 90
+                )),
               ),
             ),
             GestureDetector(
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => primeiraTela()),
+                  MaterialPageRoute(builder: (context) => const primeiraTela()),
                 );
               },
-              child: Container(
-                width: 50,
-                height: 50,
-                child: Icon(Icons.graphic_eq, color: Color(0xFF6CE5E8)),
+              child: Center(
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(15),
+                  
+                    child: Image.asset(
+                  "assets/iconesantander.jpg",width: 90,
+                )),
               ),
             ),
             GestureDetector(
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => primeiraTela()),
+                  MaterialPageRoute(builder: (context) => const primeiraTela()),
                 );
               },
-              child: Container(
-                width: 50,
-                height: 50,
-                child: const Icon(Icons.graphic_eq, color: Color(0xFF6CE5E8)),
+              child: Center(
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(15),
+                  
+                    child: Image.asset(
+                  "assets/iconeinter.png",width: 90,
+                )),
               ),
             ),
             GestureDetector(
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => primeiraTela()),
+                  MaterialPageRoute(builder: (context) => const primeiraTela()),
                 );
               },
-              child: Container(
-                width: 50,
-                height: 50,
-                child: const Icon(Icons.graphic_eq, color: Color(0xFF6CE5E8)),
+              child: Center(
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(15),
+                  
+                    child: Image.asset(
+                  "assets/iconec6bank.png",width: 90,
+                )),
               ),
             ),
             GestureDetector(
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => primeiraTela()),
+                  MaterialPageRoute(builder: (context) => const primeiraTela()),
                 );
               },
-              child: Container(
-                width: 50,
-                height: 50,
-                child: const Icon(Icons.graphic_eq, color: Color(0xFF6CE5E8)),
+              child: Center(
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(15),
+                  
+                    child: Image.asset(
+                  "assets/iconenext.jpg",width: 90,
+                )),
               ),
             ),
           ],
@@ -104,4 +127,18 @@ class HomePage extends StatelessWidget {
       ),
     );
   }
+    Chip customChip({
+    required String text,
+    required int backgroundColor,
+    required BuildContext context,
+  }) {
+    return Chip(
+      label: Text(text),
+      backgroundColor: Color(backgroundColor),
+      labelStyle: Theme.of(context).textTheme.labelLarge!.copyWith(
+            color: Colors.white,
+          ),
+    );
+  }
 }
+
