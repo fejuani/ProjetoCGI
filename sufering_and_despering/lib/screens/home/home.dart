@@ -33,11 +33,11 @@ class HomePage extends StatelessWidget {
         ],
       ),
       body: SingleChildScrollView(
-        scrollDirection: Axis.horizontal,
-        child: Row(
+        scrollDirection: Axis.vertical,
+        child: Column(
           children: [
             const Padding(
-              padding: EdgeInsets.only(left: 10.0),
+              padding: EdgeInsets.only(left: 23.0),
               ),
             GestureDetector(
               
