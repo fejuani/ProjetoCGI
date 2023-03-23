@@ -3,7 +3,7 @@ import 'package:sufering_and_despering/screens/home/home.dart';
 
 void main() => runApp(
       const MaterialApp(
-        home: const HomePage(),
+        home:  HomePage(),
         debugShowCheckedModeBanner: false,
       ),
     );

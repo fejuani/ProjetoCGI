@@ -10,52 +10,38 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: 180.0,
-        title: const Text('Organização Pessoal'),
+        title: const Text('usuario'),
         actions: [
-          Container(
-            alignment: Alignment.centerLeft,
-            padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 5),
-            margin: const EdgeInsets.symmetric(vertical: 0, horizontal: 0),
-            child: const CircleAvatar(
-              radius: 30.0,
-              backgroundImage: AssetImage('assets/user.jpg'),
-            ),
-          ),
           IconButton(
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(
-                      builder: (context) => const UserSettingsPage()),
+                  MaterialPageRoute(builder: (context) => const NewAccount()),
                 );
               },
-              icon: const Icon(Icons.settings)),
+              icon: const Icon(
+                Icons.account_circle,
+                size: 50,
+              )),
         ],
       ),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Column(
+    
           children: [
-            const Padding(
-              padding: EdgeInsets.only(left: 23.0),
-              ),
             GestureDetector(
-              
               onTap: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => const primeiraTela()),
                 );
               },
-              child: Center(
-                                 
+              child: Align(
+                alignment: Alignment.topLeft,
                 child: ClipRRect(
-                  
-                  borderRadius: BorderRadius.circular(15), 
-                  
-                    child: Image.asset(
-                  "assets/iconenubank.png",width: 90
-                )),
+                    borderRadius: BorderRadius.circular(15),
+                    child: Image.asset("assets/iconenubank.png", width: 90)),
               ),
             ),
             GestureDetector(
@@ -65,13 +51,15 @@ class HomePage extends StatelessWidget {
                   MaterialPageRoute(builder: (context) => const primeiraTela()),
                 );
               },
-              child: Center(
+              child: Align(
+                alignment: Alignment.topLeft,
+                
                 child: ClipRRect(
-                  borderRadius: BorderRadius.circular(15),
-                  
+                    borderRadius: BorderRadius.circular(15),
                     child: Image.asset(
-                  "assets/iconesantander.jpg",width: 90,
-                )),
+                      "assets/iconesantander.jpg",
+                      width: 90
+                    )),
               ),
             ),
             GestureDetector(
@@ -81,13 +69,14 @@ class HomePage extends StatelessWidget {
                   MaterialPageRoute(builder: (context) => const primeiraTela()),
                 );
               },
-              child: Center(
+              child: Align(
+                alignment: Alignment.topLeft,
                 child: ClipRRect(
-                  borderRadius: BorderRadius.circular(15),
-                  
+                    borderRadius: BorderRadius.circular(15),
                     child: Image.asset(
-                  "assets/iconeinter.png",width: 90,
-                )),
+                      "assets/iconeinter.png",
+                      width: 90,
+                    )),
               ),
             ),
             GestureDetector(
@@ -97,13 +86,14 @@ class HomePage extends StatelessWidget {
                   MaterialPageRoute(builder: (context) => const primeiraTela()),
                 );
               },
-              child: Center(
+              child: Align(
+                alignment: Alignment.topLeft,
                 child: ClipRRect(
-                  borderRadius: BorderRadius.circular(15),
-                  
+                    borderRadius: BorderRadius.circular(15),
                     child: Image.asset(
-                  "assets/iconec6bank.png",width: 90,
-                )),
+                      "assets/iconec6bank.png",
+                      width: 90,
+                    )),
               ),
             ),
             GestureDetector(
@@ -113,13 +103,14 @@ class HomePage extends StatelessWidget {
                   MaterialPageRoute(builder: (context) => const primeiraTela()),
                 );
               },
-              child: Center(
+              child: Align(
+                alignment: Alignment.topLeft,
                 child: ClipRRect(
-                  borderRadius: BorderRadius.circular(15),
-                  
+                    borderRadius: BorderRadius.circular(15),
                     child: Image.asset(
-                  "assets/iconenext.jpg",width: 90,
-                )),
+                      "assets/iconenext.jpg",
+                      width: 90,
+                    )),
               ),
             ),
           ],
@@ -127,7 +118,8 @@ class HomePage extends StatelessWidget {
       ),
     );
   }
-    Chip customChip({
+
+  Chip customChip({
     required String text,
     required int backgroundColor,
     required BuildContext context,
@@ -141,4 +133,3 @@ class HomePage extends StatelessWidget {
     );
   }
 }
-

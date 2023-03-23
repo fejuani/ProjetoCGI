@@ -3,17 +3,17 @@ import 'package:sufering_and_despering/model/DAO/account_dao.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_masked_text2/flutter_masked_text2.dart';
-
+import 'package:sufering_and_despering/screens/settings/components/custom_textformdfield.dart';
 class NewAccount extends StatefulWidget {
   const NewAccount({super.key});
 
   @override
-  State<NewAccount> createState() => _NewAccountState();
+  State<NewAccount> createState() => NewAccountState();
 }
 
-class _NewAccountState extends State<NewAccount> {
+class NewAccountState extends State<NewAccount> {
   var nameController = TextEditingController();
-  var cpfController = TextEditingController();
+  var cpfController = MaskedTextController(mask: "000.000.000-00");
   var emailController = TextEditingController();
   var phoneController =
       MaskedTextController(mask: "+00 000 00000-0000", text: "+55 ");
@@ -24,6 +24,8 @@ class _NewAccountState extends State<NewAccount> {
       appBar: AppBar(
         title: const Text("Novo usuario"),
       ),
+
+
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
           if (_formKey.currentState!.validate()) {
@@ -34,6 +36,9 @@ class _NewAccountState extends State<NewAccount> {
               email: emailController.text,
             );
             int result = await AccountDAO.insert(account.toMap());
+
+            
+            
             SnackBar snack;
             if (result != 0) {
               snack = const SnackBar(
@@ -46,6 +51,7 @@ class _NewAccountState extends State<NewAccount> {
                 backgroundColor: Colors.orange,
               );
             }
+            // ignore: use_build_context_synchronously
             ScaffoldMessenger.of(context).showSnackBar(snack);
           }
         },
@@ -58,12 +64,6 @@ class _NewAccountState extends State<NewAccount> {
             key: _formKey,
             child: Column(
               children: [
-                IconButton(
-                  icon: const Icon(Icons.camera_alt),
-                  iconSize: 100,
-                  color: Theme.of(context).colorScheme.primary,
-                  onPressed: () {},
-                ),
                 CustomTextFormField(
                   label: "Nome",
                   controller: nameController,
@@ -75,11 +75,11 @@ class _NewAccountState extends State<NewAccount> {
                   },
                 ),
                 CustomTextFormField(
-                  label: "Sobrenome",
-                  controller: lastNameController,
+                  label: "cpf",
+                  controller: cpfController,
                   validator: (value) {
                     if (value != null && value.isEmpty) {
-                      return "O sobrenome não pode ficar em branco";
+                      return "O campo de cpf não pode ficar em branco";
                     }
                     return null;
                   },
@@ -110,25 +110,6 @@ class _NewAccountState extends State<NewAccount> {
                     return null;
                   },
                   keyboardType: TextInputType.phone,
-                ),
-                Row(
-                  children: [
-                    Switch(
-                      value: _isFavorite,
-                      onChanged: (value) {
-                        setState(() {
-                          _isFavorite = value;
-                        });
-                      },
-                    ),
-                    const SizedBox(
-                      width: 8,
-                    ),
-                    Text(
-                      "Favorito",
-                      style: Theme.of(context).textTheme.bodyLarge,
-                    ),
-                  ],
                 ),
               ],
             ),
